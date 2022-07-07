@@ -105,7 +105,6 @@ namespace Streamish.Repositories
                                         VideoId = DbUtils.GetInt(reader, "CommentVideo"),
                                         UserProfileId = DbUtils.GetInt(reader, "CommentUser")
                                     };
-                                    
                                     user.Videos.FirstOrDefault(p => p.Id == currentVideoId).Comments.Add(comment);
                                 }
                             }
