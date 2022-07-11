@@ -1,4 +1,5 @@
 const baseUrl = '/api/video';
+const userUrl = '/api/UserProfile';
 
 export const getAllVideos = () => {
   return fetch(`${baseUrl}/GetWithComments`)
@@ -9,6 +10,14 @@ export const searchVideos = (queryString) => {
   return fetch(`${baseUrl}/search?q=${queryString}`)
     .then((res) => res.json())
 };
+
+export const getVideo = (id) => {
+  return fetch(`${baseUrl}/GetByIdWithComments/${id}`).then((res) => res.json());
+};
+
+export const getUsersVideos = (id) => {
+  return fetch(`${userUrl}/GetByIdWithVideos/${id}`).then((res) => res.json());
+}
 
 export const addVideo = (video) => {
   return fetch(baseUrl, {
